@@ -17,10 +17,13 @@ class Article(models.Model):
     title = models.CharField(max_length=200)
     content = models.TextField()
     category = models.CharField(
-        max_length=2
+        max_length=2,
         choices = CATEGORY_CHOICES,
         default = DEVELOPMENT,
     )
+
+    def __str__ (self):
+        return self.title
 
 class Comment(models.Model):
     #코멘트가 어디에 달려있는 것인지를 확인해야 하기 때문에 foreign key가 필요
@@ -28,6 +31,11 @@ class Comment(models.Model):
     article = models.ForeignKey(Article, on_delete=models.CASCADE)
     username = models.CharField(max_length=50)
     comment = models.CharField(max_length=200)
+    def __str__ (self):
+        return "제목: {} , 작성자: {}".format(self.article.title, self.username)
+
 
 class HashTag(models.Model):
     name = models.CharField(max_length=50)
+    def __str__ (self):
+        return self.name
