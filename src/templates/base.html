@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=8; IE7; IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>{% block title %}sample{% endblock %}</title>
+
+    <!-- 새로 불러온 css를 불러오는 명령어-->
+    <link rel="stylesheet" href='{% static "css/base.css" %}'>
+    <link rel="stylesheet" href='{% static "css/lib/bootstrap.min.css" %}'>
+    <link rel="stylesheet" href='{% static "css/lib/font-awesome.min.css" %}'>
+
+</head>
+<body>
+  
+  <!-- 아래 {}으로 불러오는 내용들은 장고의 기능! -->
+  {% block body %} {% endblock %}
+  <script src='{% static "js/lib/bootstrap.min.js" %}'></script>
+
+
+</body>
+</html>
